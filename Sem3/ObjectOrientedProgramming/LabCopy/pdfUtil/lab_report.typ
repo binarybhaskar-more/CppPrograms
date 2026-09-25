@@ -104,7 +104,7 @@
   [7], [Menu-Driven Shopping Cart with Static Data Members \& Switch Cases], context counter(page).at(<prog7>).first(), [],
   [8], [Dynamic Memory Allocation for Array of Objects using 'new' and 'delete'], context counter(page).at(<prog8>).first(), [],
   [9], [Object Comparison and Returning Invoking Object using 'this' Pointer], context counter(page).at(<prog9>).first(), [],
-  [10], [Unary Operator Overloading (Negation '-' on Complex Number)], context counter(page).at(<prog10>).first(), [],
+  [10], [Operator Overloading (Unary '-' and Binary '+', '-')], context counter(page).at(<prog10>).first(), [],
   [11], [Prefix and Postfix Unary Operators (++ and --) Overloading], context counter(page).at(<prog11>).first(), [],
   [12], [Stream Insertion (<<) and Extraction (>>) Operator Overloading], context counter(page).at(<prog12>).first(), [],
   [13], [Four-Way User-Defined Data Type Conversions], context counter(page).at(<prog13>).first(), [],
@@ -934,7 +934,7 @@ Older: Bob (25)
 #pagebreak()
 = Practical / Question No. 10 <prog10>
 #v(-4pt)
-#text(size: 10.5pt, weight: "semibold", fill: rgb("#1e3a8a"))[Unary Operator Overloading (Negation '-' on Complex Number)]
+#text(size: 10.5pt, weight: "semibold", fill: rgb("#1e3a8a"))[Operator Overloading (Unary '-' and Binary '+', '-')]
 
 #block(
   fill: rgb("#f1f5f9"),
@@ -944,14 +944,15 @@ Older: Bob (25)
   width: 100%,
 )[
   #text(weight: "bold", fill: rgb("#0f172a"))[Question:] #h(3pt)
-  #text(fill: rgb("#1e293b"))[Write a C++ program to overload unary minus (-) operator for a Complex class.]
+  #text(fill: rgb("#1e293b"))[Write a C++ program to demonstrate operator overloading by overloading unary minus (-), binary addition (+), and binary subtraction (-) for a Complex class.]
 ]
 
 #v(2pt)
 #text(size: 10pt, weight: "bold", fill: rgb("#0f172a"))[Source Code:]
 
 ```cpp
-// Question: Write a C++ program to overload unary minus (-) operator for a Complex class.
+// Question: Write a C++ program to demonstrate operator overloading by overloading
+// unary minus (-), binary addition (+), and binary subtraction (-) for a Complex class.
 
 #include <iostream>
 using namespace std;
@@ -966,18 +967,37 @@ public:
         return Complex(-real, -imag);
     }
 
+    Complex operator+(Complex c) {
+        return Complex(real + c.real, imag + c.imag);
+    }
+
+    Complex operator-(Complex c) {
+        return Complex(real - c.real, imag - c.imag);
+    }
+
     void display() {
         cout << real << " + " << imag << "i\n";
     }
 };
 
 int main() {
-    Complex c(3, -4);
-    cout << "Original: ";
-    c.display();
+    Complex c1(5, 3), c2(2, 4);
 
-    Complex neg = -c;
-    cout << "Negated: ";
+    cout << "c1: ";
+    c1.display();
+    cout << "c2: ";
+    c2.display();
+
+    Complex sum = c1 + c2;
+    cout << "c1 + c2: ";
+    sum.display();
+
+    Complex diff = c1 - c2;
+    cout << "c1 - c2: ";
+    diff.display();
+
+    Complex neg = -c1;
+    cout << "-c1: ";
     neg.display();
 
     return 0;
@@ -988,9 +1008,12 @@ int main() {
 #block(breakable: false, width: 100%)[
   #text(size: 10pt, weight: "bold", fill: rgb("#0f172a"))[Example Output:]
   ```text
-$ ./10-UnaryOperatorOverloading
-Original: 3 + -4i
-Negated: -3 + 4i
+$ ./10-OperatorOverloading
+c1: 5 + 3i
+c2: 2 + 4i
+c1 + c2: 7 + 7i
+c1 - c2: 3 + -1i
+-c1: -5 + -3i
   ```
 ]
 #pagebreak()

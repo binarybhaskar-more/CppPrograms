@@ -126,9 +126,12 @@ Complex Numbers:
     "09-ThisPointerComparison.cpp": """$ ./09-ThisPointerComparison
 Older: Bob (25)""",
 
-    "10-UnaryOperatorOverloading.cpp": """$ ./10-UnaryOperatorOverloading
-Original: 3 + -4i
-Negated: -3 + 4i""",
+    "10-OperatorOverloading.cpp": """$ ./10-OperatorOverloading
+c1: 5 + 3i
+c2: 2 + 4i
+c1 + c2: 7 + 7i
+c1 - c2: 3 + -1i
+-c1: -5 + -3i""",
 
     "11-PrefixPostfixOperators.cpp": """$ ./11-PrefixPostfixOperators
 Prefix ++: Page: 11
@@ -157,7 +160,7 @@ titles = {
     "07-ShoppingCart.cpp": "Menu-Driven Shopping Cart with Static Data Members & Switch Cases",
     "08-DynamicArrayAllocation.cpp": "Dynamic Memory Allocation for Array of Objects using 'new' and 'delete'",
     "09-ThisPointerComparison.cpp": "Object Comparison and Returning Invoking Object using 'this' Pointer",
-    "10-UnaryOperatorOverloading.cpp": "Unary Operator Overloading (Negation '-' on Complex Number)",
+    "10-OperatorOverloading.cpp": "Operator Overloading (Unary '-' and Binary '+', '-')",
     "11-PrefixPostfixOperators.cpp": "Prefix and Postfix Unary Operators (++ and --) Overloading",
     "12-StreamOperatorOverloading.cpp": "Stream Insertion (<<) and Extraction (>>) Operator Overloading",
     "13-TypeConversion.cpp": "Four-Way User-Defined Data Type Conversions"
